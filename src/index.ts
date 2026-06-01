@@ -9,10 +9,6 @@ const configs: ServiceConfigs = {
 
     ENABLE_V6: process.env.ENABLE_V6 === 'true',
     CRON: process.env.CRON || '0 0 0 * * *',
-    ROUTER_USERNAME: process.env.ROUTER_USERNAME || '',
-    ROUTER_PASSWORD: process.env.ROUTER_PASSWORD || '',
-    ROUTER_IP: process.env.ROUTER_IP || '',
-    ROUTER_PORT: Number(process.env.ROUTER_PORT || 0),
     DN: Number(process.env.DOWNLOAD_NUM || 0),
     TL: Number(process.env.TIME_LIMIT || 0),
     TLL: Number(process.env.TIME_LOWER_LIMIT || 0),

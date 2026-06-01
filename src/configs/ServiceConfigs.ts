@@ -1,10 +1,6 @@
 export interface ServiceConfigs {
     ENABLE_V6:boolean
     CRON:string
-    ROUTER_USERNAME:string
-    ROUTER_PASSWORD:string
-    ROUTER_IP:string
-    ROUTER_PORT:number
     SELECT_NUM:number
     LOG_LEVEL:string
     SCRIPT_WIN: string

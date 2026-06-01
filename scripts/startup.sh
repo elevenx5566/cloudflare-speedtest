@@ -7,7 +7,6 @@ DEFAULT_DIR="./defaults"
 mkdir -p "$CONFIG_DIR"
 
 echo "[INFO] Checking default config files..."
-
 # Copy missing files from default config directory
 for file in "$DEFAULT_DIR"/*; do
   filename=$(basename "$file")
@@ -20,6 +19,5 @@ for file in "$DEFAULT_DIR"/*; do
     echo "[SKIP] $filename already exists, skipping"
   fi
 done
-
 # Start the application
 exec node /app/index.js
