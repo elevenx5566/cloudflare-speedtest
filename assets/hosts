@@ -1,0 +1,16 @@
+aaaa.com  1.1.1.1
+
+bbb.com 2.2.2.2
+
+###BEGIN cloudflareSpeedtest-local###
+104.21.57.41 www.aaa.com
+104.21.57.41 www.bbb.com
+104.21.57.41 www.ccc.com
+104.21.57.41 www.ddd.com
+104.21.57.41 www.ggg.com
+2606:4700:f2::a707:61c9 www.aaa.com
+2606:4700:f2::a707:61c9 www.bbb.com
+2606:4700:f2::a707:61c9 www.ccc.com
+2606:4700:f2::a707:61c9 www.ddd.com
+2606:4700:f2::a707:61c9 www.ggg.com
+###END cloudflareSpeedtest-local###
