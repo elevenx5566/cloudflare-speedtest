@@ -38,7 +38,7 @@ npm run build
 - docker-compose
 
 - ```  
-  cloudflare-ikuai:
+  cloudflare-speedtest:
     image: elevenx5566/cloudflare-speedtest:latest
     container_name: cloudflare-speedtest
     restart: always
