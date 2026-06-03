@@ -38,15 +38,16 @@ npm run build
 - docker-compose
 
 - ```  
-  cloudflare-speedtest:
-    image: elevenx5566/cloudflare-speedtest:latest
-    container_name: cloudflare-speedtest
+  cloudflare_speedtest:
+    image: elevenx5566/cloudflare_speedtest:latest
+    container_name: cloudflare_speedtest
     restart: always
     network_mode: "host"
     environment:
       - TZ=Asia/Shanghai
     volumes:
       - ./cloudflare-speedtest/configs:/app/configs
+      - /etc/hosts:/etc:/hosts    #可以更换其他hosts文件，需要提前创建
     mem_limit: 512m
   ```
 
@@ -59,8 +60,9 @@ npm run build
     --network host \
     -e TZ=Asia/Shanghai \
     -v ./cloudflare-speedtest/configs:/app/configs \
+    -v /etc/hosts:/etc:/hosts \
     --memory=512m \
-    elevenx5566/cloudflare-speedtest:latest
+    elevenx5566/cloudflare_speedtest:latest
 
   ```
   
