@@ -5,7 +5,6 @@ import {spawn} from "child_process";
 
 import {FileUtils} from "../utils/FileUtils";
 const fs = require('fs/promises');
-const  ikuai=require('ikuai')
 export class TaskService {
     private configs:ServiceConfigs
     private logger:Logger
