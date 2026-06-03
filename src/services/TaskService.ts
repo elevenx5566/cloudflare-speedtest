@@ -1,6 +1,6 @@
 import {ServiceConfigs} from "../configs/ServiceConfigs";
 import path from "path";
-import {Logger, loggers} from "winston";
+import {Logger} from "winston";
 import {spawn} from "child_process";
 
 import {FileUtils} from "../utils/FileUtils";
@@ -44,8 +44,6 @@ export class TaskService {
 
     private async  update2Local(ip:Array<string> , ip6:Array<string> , domain_set:Array<string>){
         const hostsPath = this.configs.HOSTS_FILE;
-        const START_MARKER:string=''
-        const END_MARKER:string=''
         // 读取现有 hosts
         let content = await fs.readFile(hostsPath, 'utf8');
         this.logger.debug("hosts内容：")
@@ -65,7 +63,7 @@ export class TaskService {
             content =
                 content.slice(0, startIndex) +
                 managedBlock +
-                content.slice(endIndex ,endIndex+ END_MARKER.length);
+                content.slice(endIndex ,endIndex+ this.END_MARKER.length);
         } else {
             // 追加到末尾
             content =
@@ -74,14 +72,6 @@ export class TaskService {
                 managedBlock +
                 '\n';
         }
-
-       /* // 备份
-        await fs.copyFile(
-            hostsPath,
-            `${hostsPath}.bak`
-        );*/
-
-        // 写回
         await fs.writeFile(
             hostsPath,
             content,
@@ -177,11 +167,12 @@ export class TaskService {
         if (this.configs.ENABLE_V6){
             this.logger.info("V6测速......")
             await this.execSpeedTest(workdir,['-o', this.configs.FILE6,'-f',v6List,...option]);
-            this.logger.info('V6测速完成!');
+            this.logger.info('V6测速完成，开始更新hosts.....');
             let ip6:Array<string>=await FileUtils.readCsv2IpArray(path.join(workdir, this.configs.FILE6),this.configs.SELECT_NUM)
             this.logger.debug("ipv6->:"+ip6)
             await this.update2Local(ip4,ip6,domain)
         }else {
+            this.logger.info("V6测速未开启，跳过测速，开始更新hosts")
             await this.update2Local(ip4,[] ,domain)
         }
 

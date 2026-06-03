@@ -3,6 +3,9 @@ import winston from "winston";
 import env from 'dotenv'
 import {ServiceConfigs} from "./configs/ServiceConfigs";
 import moment from 'moment-timezone'
+/**
+ * 配置文件路径
+ * **/
 env.config({path:'./configs/service.env'});
 
 const configs: ServiceConfigs = {
