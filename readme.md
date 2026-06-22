@@ -47,7 +47,7 @@ npm run build
       - TZ=Asia/Shanghai
     volumes:
       - ./cloudflare-speedtest/configs:/app/configs
-      - /etc/hosts:/etc:/hosts    #可以更换其他hosts文件，需要提前创建
+      - /etc/hosts:/etc/hosts    #可以更换其他hosts文件，需要提前创建
     mem_limit: 512m
   ```
 
