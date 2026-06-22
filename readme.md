@@ -60,7 +60,7 @@ npm run build
     --network host \
     -e TZ=Asia/Shanghai \
     -v ./cloudflare-speedtest/configs:/app/configs \
-    -v /etc/hosts:/etc:/hosts \
+    -v /etc/hosts:/etc/hosts \
     --memory=512m \
     elevenx5566/cloudflare_speedtest:latest
 
